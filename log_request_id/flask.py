@@ -1,7 +1,9 @@
+import os
 from typing import Optional
-from .request_id import DEFAULT_REQUEST_ID_OBJECT_NAME, default_request_id_generator
+from .request_id import DEFAULT_REQUEST_ID_OBJECT_NAME, default_request_id_generator, register_context_getter
 
 
+@register_context_getter(skip=os.getenv('LOG_REQUEST_ID_FRAMEWORK_SUPPORT') == 'flask')
 def get_flask_context_request_id(request_id_object_name=None):
     from flask import g
 
