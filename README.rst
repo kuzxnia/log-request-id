@@ -32,13 +32,27 @@ Usage
 
 2. Init request-ID handler
 
-  -  Flask, with
-     ``log_request_id.flask.init_flask_request_id_handler``
+-  Flask, with ``log_request_id.flask.init_flask_request_id_handler``
 
-  .. code:: python
+.. code:: python
 
-     from log_request_id import init_flask_request_id_handler
+   from log_request_id import init_flask_request_id_handler
 
-     def create_flask_app():
-         app = Flask()
-         init_flask_request_id_handler(app)
+   def create_flask_app():
+       app = Flask()
+       init_flask_request_id_handler(app)
+
+3. Change log format (optional)
+
+At this stage ``request_id`` is already present in log data, request-ID will be under ``request_id`` key.
+
+.. code:: python
+
+   logging.basicConfig(level=logging.WARNING, format='%(filename)s:%(levelname)s:%(request_id)s - %(message)s')
+   # or 
+   logging.getlogger().setformatter(logging.formatter("%(asctime)s:%(name)s:level=%(levelname)s:%(request_id)s - %(message)s"))
+
+
+For more advanced logger configuration see `python's logging module <https://docs.python.org/3/library/logging.html>`_.
+
+``Warning`` if you will be adding custom handler or custom logging initialization use ``log_request_id.logging.RequestIdLogRecordFactory`` or ``log_request_id.logging.RequestIdLogFilter``.
