@@ -1,7 +1,7 @@
 log-request-id
 =================
 
-Log-Request-ID is an extension to handle request-IDs logs in popular python api frameworks. 
+Log-Request-ID is an extension to handle request-IDs logs in popular python api frameworks.
 
 Currently supported frameworks: flask
 
@@ -49,7 +49,7 @@ At this stage ``request_id`` is already present in log data, request-ID will be 
 .. code:: python
 
    logging.basicConfig(level=logging.WARNING, format='%(filename)s:%(levelname)s:%(request_id)s - %(message)s')
-   # or 
+   # or
    logging.getlogger().setformatter(logging.formatter("%(asctime)s:%(name)s:level=%(levelname)s:%(request_id)s - %(message)s"))
 
 
