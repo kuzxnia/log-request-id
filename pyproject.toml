@@ -17,7 +17,7 @@ exclude = '''
 
 [tool.poetry]
 name = "log-request-id"
-version = "0.1.0"
+version = "0.1.1"
 description = "Log-Request-ID is extension for handling request-ID in logging."
 authors = ["kuzxnia <kacper.kuzniarski@gmail.com>"]
 license = "MIT"

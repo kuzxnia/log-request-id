@@ -1,6 +1,8 @@
 Pipfile
 Pipfile.lock
 .env
+.venv
+.git
 idea
 .idea
 .ipynb_checkpoints

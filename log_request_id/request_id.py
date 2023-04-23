@@ -1,9 +1,11 @@
+from collections.abc import Callable
+from typing import List
 import uuid
 import functools
 import os
 
 DEFAULT_REQUEST_ID_OBJECT_NAME: str = os.getenv('DEFAULT_REQUEST_ID_OBJECT_NAME', default='request_id')
-REQUEST_ID_CONTEXT_GETTERS = []
+REQUEST_ID_CONTEXT_GETTERS: List[Callable] = []
 
 
 def current_request_id():
